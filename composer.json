@@ -1,0 +1,15 @@
+{
+    "name": "admin/ritual-auth",
+    "description": "Package auth dan Pencatatan Log Aktifitas",
+    "autoload": {
+        "psr-4": {
+            "Admin\\RitualAuth\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ajifebri",
+            "email": "fanto356@gmail.com"
+        }
+    ]
+}
