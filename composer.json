@@ -1,9 +1,9 @@
 {
-    "name": "admin/ritual-auth",
+    "name": "Admaja/ritual-auth",
     "description": "Package auth dan Pencatatan Log Aktifitas",
     "autoload": {
         "psr-4": {
-            "Admin\\RitualAuth\\": "src/"
+            "Admaja\\RitualAuth\\": "src/"
         }
     },
     "authors": [
