@@ -1,5 +1,5 @@
 {
-    "name": "Admaja/ritual-auth",
+    "name": "admaja/ritual-auth",
     "description": "Package auth dan Pencatatan Log Aktifitas",
     "autoload": {
         "psr-4": {
