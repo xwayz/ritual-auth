@@ -34,49 +34,49 @@
   
      Example to Use:
 
-            ```
-            public function authenticate(Request $request)
-            {
-                $credentials = $this->validateAuth($request);
+        ```
+        public function authenticate(Request $request)
+        {
+            $credentials = $this->validateAuth($request);
 
-                $ritual = RitualAuth::attempt($request, $credentials);
+            $ritual = RitualAuth::attempt($request, $credentials);
 
-                if($ritual["data"]->status == "blocked"){
-                    return back()->withErrors([
-                        'email' => 'Maaf anda tidak bisa login untuk beberapa saat',
-                    ]);
-                }
-
-                if($ritual["status"] == true){
-                    return "success";
-                }
-
+            if($ritual["data"]->status == "blocked"){
                 return back()->withErrors([
-                    'email' => 'Email atau Password salah, silahkan cek kembali email dan password anda',
+                    'email' => 'Maaf anda tidak bisa login untuk beberapa saat',
                 ]);
             }
 
-            protected function validateAuth($request)
-            {
-                return $request->validate([
-                    $this->username() => 'required|email',
-                    'password' => 'required',
-                ]);
+            if($ritual["status"] == true){
+                return "success";
             }
 
-            protected function username()
-            {
-                return "email";
-            }
+            return back()->withErrors([
+                'email' => 'Email atau Password salah, silahkan cek kembali email dan password anda',
+            ]);
+        }
 
-            public function logout(Request $request)
-            {
-                LoginInformation::where("user_id", auth()->user()->id)->update([
-                    "status" => "logout"
-                ]);
+        protected function validateAuth($request)
+        {
+            return $request->validate([
+                $this->username() => 'required|email',
+                'password' => 'required',
+            ]);
+        }
 
-                $request->session()->invalidate();
+        protected function username()
+        {
+            return "email";
+        }
 
-                return $request->wantsJson() ? new JsonResponse([], 204) : redirect()->route('auth.login.index');
-            }
-            ```
+        public function logout(Request $request)
+        {
+            LoginInformation::where("user_id", auth()->user()->id)->update([
+                "status" => "logout"
+            ]);
+
+            $request->session()->invalidate();
+
+            return $request->wantsJson() ? new JsonResponse([], 204) : redirect()->route('auth.login.index');
+        }
+        ```
