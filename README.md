@@ -12,7 +12,8 @@
  Next Step:
  1. Delete File Migration User (Laravel)
  2. Make Seeder For Table SeetingTable:
- 
+    
+    ```
     $rules = [
         "auth" => [
             "unique_code_type" => "email",
@@ -25,7 +26,7 @@
         "last_updated_by" => "master",
         "rules" => json_encode($rules),
         "status" => "active" 
-    ]);
+    ]); ```
     
     And Seed This Class, You can Custom value in SettingTable according to the needs, but the code above is mandatory.
   3. Install composer require hisorange/browser-detect, [Browser Detection](https://github.com/hisorange/browser-detect)
@@ -76,5 +77,4 @@
         $request->session()->invalidate();
 
         return $request->wantsJson() ? new JsonResponse([], 204) : redirect()->route('auth.login.index');
-    }
-    ```
+    }```
