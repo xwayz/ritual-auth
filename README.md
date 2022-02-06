@@ -28,3 +28,53 @@
     ]);
     
     And Seed This Class, You can Custom value in SettingTable according to the needs, but the code above is mandatory.
+  3. Install composer require hisorange/browser-detect, [Browser Detection](https://github.com/hisorange/browser-detect)
+  
+  Example to Use:
+  
+  ```
+    public function authenticate(Request $request)
+    {
+        $credentials = $this->validateAuth($request);
+
+        $ritual = RitualAuth::attempt($request, $credentials);
+
+        if($ritual["data"]->status == "blocked"){
+            return back()->withErrors([
+                'email' => 'Maaf anda tidak bisa login untuk beberapa saat',
+            ]);
+        }
+
+        if($ritual["status"] == true){
+            return "success";
+        }
+        
+        return back()->withErrors([
+            'email' => 'Email atau Password salah, silahkan cek kembali email dan password anda',
+        ]);
+    }
+
+    protected function validateAuth($request)
+    {
+        return $request->validate([
+            $this->username() => 'required|email',
+            'password' => 'required',
+        ]);
+    }
+    
+    protected function username()
+    {
+        return "email";
+    }
+
+    public function logout(Request $request)
+    {
+        LoginInformation::where("user_id", auth()->user()->id)->update([
+            "status" => "logout"
+        ]);
+
+        $request->session()->invalidate();
+
+        return $request->wantsJson() ? new JsonResponse([], 204) : redirect()->route('auth.login.index');
+    }
+    ```
