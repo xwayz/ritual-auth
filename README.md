@@ -1,4 +1,4 @@
-# ritual-auth
+# ritual-auth (Under Development)
 
 - Instalation => composer require admaja/ritual-auth
 - Configuration
