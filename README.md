@@ -79,3 +79,4 @@
 
                 return $request->wantsJson() ? new JsonResponse([], 204) : redirect()->route('auth.login.index');
             }
+            ```
