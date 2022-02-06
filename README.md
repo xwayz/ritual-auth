@@ -27,4 +27,4 @@
         "status" => "active" 
     ]);
     
-    And Seeder This Class, You can Custom value in SettingTable according to the needs, but the code above is mandatory.
+    And Seed This Class, You can Custom value in SettingTable according to the needs, but the code above is mandatory.
