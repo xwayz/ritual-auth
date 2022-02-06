@@ -29,8 +29,7 @@
     ]);
     
     ```
-    
-  And Seed This Class, You can Custom value in SettingTable according to the needs, but the code above is mandatory.
+      And Seed This Class, You can Custom value in SettingTable according to the needs, but the code above is mandatory.
   3. Install composer require hisorange/browser-detect, [Browser Detection](https://github.com/hisorange/browser-detect)
   
   Example to Use:
