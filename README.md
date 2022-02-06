@@ -33,6 +33,8 @@
   3. Install composer require hisorange/browser-detect, [Browser Detection](https://github.com/hisorange/browser-detect)
   
           Example to Use:
+          
+          
 
           ```
             public function authenticate(Request $request)
